@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="/form.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Age Calculator</h1>
+        <p>Welcome,! You can use the age calculator below:</p>
+
+        <label for="birthdate">Enter your birthdate: </label>
+        <input type="date" id="birthdate">
+
+        <button onclick="calculateAge()">Calculate Age</button>
+
+        <p>Your age is: <span id="result"></span></p>
+    </div>
+
+    <script>
+        function calculateAge() {
+            const birthdate = new Date(document.getElementById('birthdate').value);
+            const now = new Date();
+            const ageInMilliseconds = now - birthdate;
+            const ageInYears = ageInMilliseconds / (1000 * 60 * 60 * 24 * 365.25);
+            const age = Math.floor(ageInYears);
+            document.getElementById('result').textContent = age + ' years old';
+        }
+    </script>
+</body>
+
+</html>
